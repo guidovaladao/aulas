@@ -3,63 +3,110 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aulas Particulares de Física</title>
+  <title>Aulas Particulares de Física | UFV</title>
   <style>
     :root {
       --bg-color: #0b0b12;
-      --card-bg: #13131f;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(108, 92, 231, 0.25);
       --accent-purple: #6c5ce7;
-      --glow-purple: rgba(108, 92, 231, 0.35);
+      --glow-purple: rgba(108, 92, 231, 0.25);
       --text-white: #ffffff;
       --text-muted: #a0a0b0;
     }
 
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-white);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
+      line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* Glow Effects */
-    .glow-left {
-      position: absolute;
-      top: 50px;
-      left: -100px;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, var(--glow-purple) 0%, rgba(0,0,0,0) 70%);
-      z-index: 0;
+    /* Navegação Fixa */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(11, 11, 18, 0.85);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .glow-right {
+    nav {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+    }
+
+    .logo {
+      font-family: 'Georgia', serif;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: var(--text-white);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-white);
+    }
+
+    /* Layout Geral */
+    section {
+      padding: 90px 20px 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .glow {
       position: absolute;
-      top: 250px;
-      right: -100px;
       width: 450px;
       height: 450px;
       background: radial-gradient(circle, var(--glow-purple) 0%, rgba(0,0,0,0) 70%);
       z-index: 0;
+      pointer-events: none;
     }
+    .glow-1 { top: 100px; left: -150px; }
+    .glow-2 { top: 600px; right: -150px; }
 
-    .container {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-      width: 90%;
+    /* Seção Hero */
+    .hero {
       text-align: center;
-      padding: 60px 20px;
+      padding-top: 130px;
+      padding-bottom: 60px;
     }
 
     .badge {
       display: inline-block;
-      background-color: rgba(108, 92, 231, 0.2);
-      border: 1px solid rgba(108, 92, 231, 0.4);
+      background-color: rgba(108, 92, 231, 0.15);
+      border: 1px solid var(--card-border);
       color: #a29bfe;
       padding: 6px 16px;
       border-radius: 20px;
@@ -69,7 +116,7 @@
 
     h1 {
       font-family: 'Georgia', serif;
-      font-size: 2.8rem;
+      font-size: 3rem;
       font-weight: normal;
       margin: 0 0 16px 0;
       line-height: 1.2;
@@ -77,8 +124,8 @@
 
     .subtitle {
       color: var(--text-muted);
-      font-size: 1.1rem;
-      margin-bottom: 12px;
+      font-size: 1.15rem;
+      margin-bottom: 8px;
     }
 
     .author {
@@ -94,7 +141,7 @@
       background-color: var(--accent-purple);
       color: white;
       text-decoration: none;
-      padding: 12px 28px;
+      padding: 14px 32px;
       border-radius: 30px;
       font-weight: 600;
       box-shadow: 0 4px 20px rgba(108, 92, 231, 0.4);
@@ -106,31 +153,187 @@
       background-color: #5b4bc4;
     }
 
+    /* Títulos de Seção */
     .section-title {
       font-family: 'Georgia', serif;
-      font-size: 2rem;
-      margin-top: 100px;
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 40px;
+      font-weight: normal;
+    }
+
+    /* Grids & Cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 28px;
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(108, 92, 231, 0.5);
+    }
+
+    .card h3 {
+      font-family: 'Georgia', serif;
+      margin-top: 0;
+      color: #a29bfe;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    /* Sobre Mim */
+    .about-content {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 36px;
+      font-size: 1.05rem;
+      color: #d0d0e0;
+      line-height: 1.8;
+    }
+
+    /* Depoimentos */
+    .testimonial-author {
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: #a29bfe;
+      font-weight: bold;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2.2rem; }
+      .nav-links { display: none; } /* Oculta menu no mobile para simplicidade */
     }
   </style>
 </head>
 <body>
 
-  <div class="glow-left"></div>
-  <div class="glow-right"></div>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
 
-  <div class="container">
+  <!-- Menu de Navegação -->
+  <header>
+    <nav>
+      <a href="#" class="logo">Prof. Física</a>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre Mim</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#metodologia">Como Funciona</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Cabeçalho (Hero) -->
+  <section class="hero">
     <div class="badge">• Aulas Online e Presenciais</div>
     <h1>Aulas Particulares de Física</h1>
     <p class="subtitle">Do básico ao avançado • Ensino Médio, Vestibular e Graduação</p>
-    <p class="author">Mestrando pela UFV</p>
+    <p class="author">Mestrando pela UFV & Tutor desde 2022</p>
 
     <a href="https://wa.me/55SEUNUMERO" class="btn-whatsapp" target="_blank">
       <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-      Agendar Aula
+      Agendar Aula via WhatsApp
     </a>
+  </section>
 
+  <!-- Sobre Mim -->
+  <section id="sobre">
+    <h2 class="section-title">Sobre Mim</h2>
+    <div class="about-content">
+      Estudante de mestrado na Universidade Federal de Viçosa (UFV) e tutor de Física I no programa de tutoria da instituição desde 2022. 
+      <br><br>
+      Ao longo dessa trajetória no ensino superior, desenvolvi metodologias claras e estratégias pedagógicas focadas em simplificar conceitos fundamentais e desmistificar a física básica. Meu objetivo é ajudar os estudantes a desenvolverem raciocínio lógico e autonomia na resolução de problemas, garantindo um acompanhamento personalizado de alto nível.
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section id="servicos">
     <h2 class="section-title">O que você vai aprender</h2>
-  </div>
+    <div class="grid">
+      <div class="card">
+        <h3>Física I & Nível Superior</h3>
+        <p>Acompanhamento completo para disciplinas universitárias: Mecânica Clássica, Cinemática, Dinâmica, Trabalho, Energia e Resolução de Listas.</p>
+      </div>
+      <div class="card">
+        <h3>Ensino Médio & ENEM</h3>
+        <p>Reforço escolar focado na matriz do ENEM e principais vestibulares. Aprenda a interpretar enunciados e aplicar as fórmulas com confiança.</p>
+      </div>
+      <div class="card">
+        <h3>Preparatório para Provas</h3>
+        <p>Aulas intensivas focadas em revisões de véspera, resolução de provas antigas e superação de dúvidas específicas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Como Funciona -->
+  <section id="metodologia">
+    <h2 class="section-title">Como Funcionam as Aulas</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>1. Diagnóstico Inicial</h3>
+        <p>Identificamos as suas maiores dificuldades e o conteúdo cobrado na sua disciplina ou edital.</p>
+      </div>
+      <div class="card">
+        <h3>2. Plano Personalizado</h3>
+        <p>Aulas estruturadas com explicação teórica direta ao ponto e foco prático na resolução de exercícios.</p>
+      </div>
+      <div class="card">
+        <h3>3. Suporte Continuado</h3>
+        <p>Material de apoio e acompanhamento para que você ganhe segurança antes de cada avaliação.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos -->
+  <section id="depoimentos">
+    <h2 class="section-title">Depoimentos de Alunos</h2>
+    <div class="grid">
+      <div class="card">
+        <p>"A tutoria me ajudou demais a entender Física I. A didática é excelente e os exercícios ficam bem mais fáceis de resolver."</p>
+        <div class="testimonial-author">— Aluno de Engenharia (UFV)</div>
+      </div>
+      <div class="card">
+        <p>"Consegui tirar minhas dúvidas de anos sobre vetores e leis de Newton em poucas aulas. Recomendo muito!"</p>
+        <div class="testimonial-author">— Aluna de Agronomia (UFV)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chamada Final / Rodapé -->
+  <footer>
+    <p>Pronto para destravar seu aprendizado em Física?</p>
+    <a href="https://wa.me/55SEUNUMERO" class="btn-whatsapp" target="_blank" style="margin-top: 10px;">
+      Falar no WhatsApp
+    </a>
+    <p style="margin-top: 40px; font-size: 0.8rem; opacity: 0.6;">
+      © Aulas Particulares de Física • Viçosa - MG
+    </p>
+  </footer>
 
 </body>
 </html>
