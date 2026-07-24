@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aulas Particulares de Física</title>
+  <style>
+    :root {
+      --bg-color: #0b0b12;
+      --card-bg: #13131f;
+      --accent-purple: #6c5ce7;
+      --glow-purple: rgba(108, 92, 231, 0.35);
+      --text-white: #ffffff;
+      --text-muted: #a0a0b0;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Glow Effects */
+    .glow-left {
+      position: absolute;
+      top: 50px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--glow-purple) 0%, rgba(0,0,0,0) 70%);
+      z-index: 0;
+    }
+
+    .glow-right {
+      position: absolute;
+      top: 250px;
+      right: -100px;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, var(--glow-purple) 0%, rgba(0,0,0,0) 70%);
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      width: 90%;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: rgba(108, 92, 231, 0.2);
+      border: 1px solid rgba(108, 92, 231, 0.4);
+      color: #a29bfe;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-family: 'Georgia', serif;
+      font-size: 2.8rem;
+      font-weight: normal;
+      margin: 0 0 16px 0;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+
+    .author {
+      color: #a29bfe;
+      font-size: 0.95rem;
+      margin-bottom: 32px;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: var(--accent-purple);
+      color: white;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 600;
+      box-shadow: 0 4px 20px rgba(108, 92, 231, 0.4);
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      background-color: #5b4bc4;
+    }
+
+    .section-title {
+      font-family: 'Georgia', serif;
+      font-size: 2rem;
+      margin-top: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glow-left"></div>
+  <div class="glow-right"></div>
+
+  <div class="container">
+    <div class="badge">• Aulas Online e Presenciais</div>
+    <h1>Aulas Particulares de Física</h1>
+    <p class="subtitle">Do básico ao avançado • Ensino Médio, Vestibular e Graduação</p>
+    <p class="author">Mestrando pela UFV</p>
+
+    <a href="https://wa.me/55SEUNUMERO" class="btn-whatsapp" target="_blank">
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+      Agendar Aula
+    </a>
+
+    <h2 class="section-title">O que você vai aprender</h2>
+  </div>
+
+</body>
+</html>
