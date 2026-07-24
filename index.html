@@ -228,6 +228,41 @@
       h1 { font-size: 2.2rem; }
       .nav-links { display: none; } /* Oculta menu no mobile para simplicidade */
     }
+    /* Símbolos Decorativos de Fundo */
+    .bg-symbols {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; /* Garante que os símbolos não atrapalhem os cliques */
+      z-index: 0;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    .symbol {
+      position: absolute;
+      color: rgba(108, 92, 231, 0.12); /* Tom roxo bem sutil/transparente */
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      animation: float 8s ease-in-out infinite alternate;
+    }
+
+    /* Animação suave para os símbolos flutuarem */
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      100% { transform: translateY(-25px) rotate(6deg); }
+    }
+
+    /* Posicionamento, tamanho e variação do movimento */
+    .sym-1 { top: 15%; left: 6%; font-size: 5rem; animation-delay: 0s; }
+    .sym-2 { top: 28%; right: 8%; font-size: 3.5rem; animation-delay: 1.5s; }
+    .sym-3 { top: 48%; left: 4%; font-size: 4.5rem; animation-delay: 3s; }
+    .sym-4 { top: 68%; right: 6%; font-size: 2.2rem; animation-delay: 2s; }
+    .sym-5 { top: 85%; left: 8%; font-size: 2rem; animation-delay: 4s; }
+    .sym-6 { top: 40%; right: 4%; font-size: 2.8rem; animation-delay: 1s; }
+    .sym-7 { top: 92%; right: 12%; font-size: 4rem; animation-delay: 2.5s; }
   </style>
 </head>
 <body>
