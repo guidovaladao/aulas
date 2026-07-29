@@ -154,13 +154,30 @@
     }
 
     /* Títulos de Seção */
-    .section-title {
-      font-family: 'Georgia', serif;
-      font-size: 2.2rem;
-      text-align: center;
-      margin-bottom: 40px;
-      font-weight: normal;
-    }
+.section-title {
+  font-family: 'Georgia', serif;
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 48px;
+  font-weight: normal;
+  color: #ffffff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Linha decorativa abaixo do título */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+  border-radius: 2px;
+  margin-top: 12px;
+  box-shadow: 0 0 10px rgba(108, 92, 231, 0.6);
+}
 
     /* Grids & Cards */
     .grid {
@@ -201,7 +218,7 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 20px;
-      padding: 36px;
+      padding: 32px 36px;
       font-size: 1.05rem;
       color: #d0d0e0;
       line-height: 1.8;
@@ -271,6 +288,87 @@
     .sym-13 { top: 10%; right: 45%; font-size: 2rem; animation-delay: 3s; }
     .sym-14 { top: 75%; left: 3%; font-size: 4rem; animation-delay: 1.2s; }
     .sym-15 { top: 90%; right: 35%; font-size: 2.5rem; animation-delay: 2.7s; }
+
+    /* Estilos para a Foto de Perfil */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr; /* Largura da coluna da foto + texto */
+      gap: 36px;
+      align-items: center;
+    }
+
+    .about-photo-container {
+      text-align: center;
+    }
+
+    .about-photo {
+      width: 180px;  /* Ajuste a LARGURA aqui (ex: 150px, 180px, 200px) */
+      height: 180px; /* Mantenha a ALTURA igual para continuar redonda */
+      object-fit: cover;
+      border-radius: 50%; /* Deixa a foto circular */
+      border: 2px solid var(--accent-purple);
+      box-shadow: 0 0 20px rgba(108, 92, 231, 0.35); /* Brilho neon roxo */
+    }
+
+    /* Adaptação para telas de celular */
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .about-photo {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    /* Layout para colocar a Foto ao lado do Conteúdo */
+    .about-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 100px; /* Espaço entre a foto e o texto */
+    }
+
+    .about-photo-container {
+      flex-shrink: 0; /* Impede a foto de espremer */
+    }
+
+    .about-photo {
+      width: 400px;  /* LARGURA DA FOTO (Ajuste aqui se quiser maior/menor) */
+      height: 400px; /* ALTURA DA FOTO */
+      object-fit: cover;
+      border-radius: 50%; /* Deixa a foto circular */
+      border: 2px solid var(--accent-purple, #6c5ce7);
+      box-shadow: 0 0 20px rgba(108, 92, 231, 0.35); /* Brilho neon */
+    }
+
+    /* Responsividade para Celulares (coloca a foto em cima do texto no mobile) */
+    @media (max-width: 768px) {
+      .about-wrapper {
+        flex-direction: column;
+        text-align: center;
+      }
+      .about-photo {
+        width: 200px;
+        height: 200px;
+      }
+    }
+
+    /* Ajuste de layout para a seção "Como Funcionam as Aulas" (2x2) */
+#metodologia .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Força 2 colunas no PC */
+  gap: 24px;
+}
+
+/* No celular continua em 1 coluna */
+@media (max-width: 768px) {
+  #metodologia .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -317,56 +415,119 @@
     <p class="subtitle">Do básico ao avançado • Ensino Médio, Vestibular e Graduação</p>
     <p class="author">Mestrando pela UFV & Tutor desde 2022</p>
 
-    <a href="https://wa.me/55SEUNUMERO" class="btn-whatsapp" target="_blank">
+    <a href="https://wa.me/5562998671040" class="btn-whatsapp" target="_blank">
       <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
       Agendar Aula via WhatsApp
     </a>
   </section>
 
-  <!-- Sobre Mim -->
+<!-- Sobre Mim -->
   <section id="sobre">
     <h2 class="section-title">Sobre Mim</h2>
-    <div class="about-content">
-      Estudante de mestrado na Universidade Federal de Viçosa (UFV) e tutor de Física I no programa de tutoria da instituição desde 2022. 
-      <br><br>
-      Ao longo dessa trajetória no ensino superior, desenvolvi metodologias claras e estratégias pedagógicas focadas em simplificar conceitos fundamentais e desmistificar a física básica. Meu objetivo é ajudar os estudantes a desenvolverem raciocínio lógico e autonomia na resolução de problemas, garantindo um acompanhamento personalizado de alto nível.
+    
+    <div class="about-wrapper">
+      <!-- Foto de Perfil -->
+      <div class="about-photo-container">
+        <img src="minha-foto.jpg" alt="Foto do Prof. Guido Valadão" class="about-photo">
+      </div>
+
+      <!-- Sua Caixa de Texto Mantida -->
+<div class="about-content">
+  <h3 style="margin-top: 0; font-family: 'Georgia', serif; font-weight: normal; color: #a29bfe; font-size: 1.4rem;">
+    Prof. Guido Valadão
+  </h3>
+  
+  <p style="margin-bottom: 16px;">
+    Sou <strong>Bacharel em Física</strong> pela Universidade Federal de Viçosa (UFV) e estudante de <strong>Mestrado em Física</strong> na mesma instituição.
+  </p>
+
+  <p style="margin-bottom: 0;">
+    Desde 2022, atuo como <strong>Tutor em Física I</strong> no Programa de Tutoria da UFV, auxiliando estudantes a superar desafios acadêmicos e a desenvolver habilidades essenciais para a vida de estudos. Com experiência em acompanhamentos particulares, busco sempre adaptar o conteúdo às necessidades individuais de cada aluno, promovendo um aprendizado mais eficaz e significativo.
+  </p>
+</div>
     </div>
   </section>
 
-  <!-- Serviços -->
+<!-- Serviços / O que você vai aprender -->
   <section id="servicos">
-    <h2 class="section-title">O que você vai aprender</h2>
+    <h2 class="section-title">Disciplinas & Conteúdos</h2>
+    
     <div class="grid">
+<!-- Card 1: Física I -->
       <div class="card">
-        <h3>Física I & Nível Superior</h3>
-        <p>Acompanhamento completo para disciplinas universitárias: Mecânica Clássica, Cinemática, Dinâmica, Trabalho, Energia e Resolução de Listas.</p>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <h3>Física I</h3>
+          <span style="font-size: 1.6rem; color: #a29bfe;">⚙️</span> <!-- Símbolo de Engrenagem / Mecânica -->
+        </div>
+        <p style="margin-bottom: 12px; color: #a29bfe; font-size: 0.9rem; font-weight: 600;">NÍVEL SUPERIOR</p>
+        <p>
+          Domine a base da mecânica universitária: Vetores, Cinemática, 
+          Leis de Newton e suas Aplicações, Trabalho e Energia, Conservação da Energia, Momento Linear,
+          Impulso e Colisões, Rotação de Corpos Rígidos, Dinâmica da Rotação e Equilíbrio e Elasticidade.
+        </p>
       </div>
+
+<!-- Card 2: Física II -->
       <div class="card">
-        <h3>Ensino Médio & ENEM</h3>
-        <p>Reforço escolar focado na matriz do ENEM e principais vestibulares. Aprenda a interpretar enunciados e aplicar as fórmulas com confiança.</p>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <h3>Física II</h3>
+          <span style="font-size: 1.6rem; color: #a29bfe;">🌊</span> <!-- Símbolo de Onda / Fluidos / Termo -->
+        </div>
+        <p style="margin-bottom: 12px; color: #a29bfe; font-size: 0.9rem; font-weight: 600;">NÍVEL SUPERIOR</p>
+        <p>
+          Acompanhamento focado nos tópicos: Gravitação, Movimento Periódico, Mecânica dos Fluidos,
+          Ondas Mecânicas, Som e Audição, Temperatura e Calor, Propriedades Térmicas da Matéria e 1ª e 2ª Leis da Termodinâmica.
+        </p>
       </div>
+
+<!-- Card 3: Suporte Acadêmico -->
       <div class="card">
-        <h3>Preparatório para Provas</h3>
-        <p>Aulas intensivas focadas em revisões de véspera, resolução de provas antigas e superação de dúvidas específicas.</p>
-      </div>
-    </div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <h3>Listas & Provas</h3>
+          <span style="font-size: 1.6rem; color: #a29bfe;">📝</span> <!-- Símbolo de Próvas / Listas -->
+        </div>
+        <p style="margin-bottom: 12px; color: #a29bfe; font-size: 0.9rem; font-weight: 600;">FOCO PRÁTICO</p>
+        <p>
+          Resolução passo a passo de listas de exercícios da graduação, revisão intensiva pré-prova e estratégias para interpretar e resolver problemas de Física de forma eficiente,
+          garantindo melhor desempenho acadêmico.
+        </p>
   </section>
 
-  <!-- Como Funciona -->
+<!-- Como Funcionam as Aulas -->
   <section id="metodologia">
     <h2 class="section-title">Como Funcionam as Aulas</h2>
+    
     <div class="grid">
+      <!-- Card 1 -->
       <div class="card">
         <h3>1. Diagnóstico Inicial</h3>
-        <p>Identificamos as suas maiores dificuldades e o conteúdo cobrado na sua disciplina ou edital.</p>
+        <p>
+          Identifico suas principais dúvidas e os pontos críticos da ementa de Física I ou II para focar exatamente no que você precisa aprender.
+        </p>
       </div>
+
+      <!-- Card 2 -->
       <div class="card">
-        <h3>2. Plano Personalizado</h3>
-        <p>Aulas estruturadas com explicação teórica direta ao ponto e foco prático na resolução de exercícios.</p>
+        <h3>2. Foco Prático & Exercícios</h3>
+        <p>
+          Explicações diretas da teoria aplicadas à resolução passo a passo das listas de exercícios e questões de provas anteriores das disciplinas.
+        </p>
       </div>
+
+      <!-- Card 3 -->
       <div class="card">
-        <h3>3. Suporte Continuado</h3>
-        <p>Material de apoio e acompanhamento para que você ganhe segurança antes de cada avaliação.</p>
+        <h3>3. Material da Aula (PDF)</h3>
+        <p>
+          Ao final de cada encontro, você recebe em PDF todas as anotações e resoluções desenvolvidas na lousa digital para revisar quando quiser.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card">
+        <h3>4. Tira-Dúvidas no WhatsApp</h3>
+        <p>
+          Canal direto de suporte via WhatsApp para esclarecer dúvidas pontuais de listas entre as aulas e manter o ritmo até o dia da prova.
+        </p>
       </div>
     </div>
   </section>
@@ -389,7 +550,7 @@
   <!-- Chamada Final / Rodapé -->
   <footer>
     <p>Pronto para destravar seu aprendizado em Física?</p>
-    <a href="https://wa.me/55SEUNUMERO" class="btn-whatsapp" target="_blank" style="margin-top: 10px;">
+    <a href="https://wa.me/5562998671040" class="btn-whatsapp" target="_blank" style="margin-top: 10px;">
       Falar no WhatsApp
     </a>
     <p style="margin-top: 40px; font-size: 0.8rem; opacity: 0.6;">
