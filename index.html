@@ -498,6 +498,115 @@
       background: #1eb857;
     }
 
+    /* Estilos do Card de Turma de Acompanhamento */
+    .turma-card {
+      background: linear-gradient(135deg, rgba(108, 92, 231, 0.15), rgba(30, 30, 45, 0.9));
+      border: 2px solid rgba(162, 155, 254, 0.4);
+      border-radius: 20px;
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+      padding: 36px 28px;
+      position: relative;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .turma-badge {
+      position: absolute;
+      top: -14px;
+      right: 28px;
+      background: #a29bfe;
+      color: #12121e;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+    }
+
+    .turma-header h3 {
+      font-size: 1.4rem;
+      color: #ffffff;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    .turma-header p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .turma-price-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .price-value {
+      font-size: 2.4rem;
+      font-weight: bold;
+      color: #a29bfe;
+    }
+
+    .price-value span {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: normal;
+    }
+
+    .price-detail {
+      margin: 4px 0 0 0;
+      font-size: 0.85rem;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .turma-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px 0;
+    }
+
+    .turma-features li {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 10px;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .turma-features li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #a29bfe;
+      font-weight: bold;
+    }
+
+    .turma-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: #6c5ce7;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 14px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-sizing: border-box;
+    }
+
+    .turma-btn:hover {
+      background: #5b4cc4;
+      transform: translateY(-2px);
+    }
   </style>
 </head>
 <body>
@@ -733,6 +842,38 @@
         <p>"Consegui tirar minhas dúvidas de anos sobre vetores e leis de Newton em poucas aulas. Recomendo muito!"</p>
         <div class="testimonial-author">— Aluna de Agronomia (UFV)</div>
       </div>
+    </div>
+  </section>
+
+<!-- Seção: Turmas de Acompanhamento -->
+  <section id="turmas">
+    <div class="section-header">
+      <h2 class="section-title">Acompanhamento Semestral em Turma</h2>
+    </div>
+
+    <div class="turma-card">
+      <div class="turma-badge">MAIOR ECONOMIA</div>
+      <div class="turma-header">
+        <h3>Turmas Pré-Prova (Física I e II)</h3>
+        <p>Aulas semanais em grupo focado para você manter a matéria em dia e não passar sufoco na semana da prova.</p>
+      </div>
+
+      <div class="turma-price-box">
+        <div class="price-value">R$ 50<span>/bloco de 4 aulas</span></div>
+        <p class="price-detail">Apenas R$ 12,50 por aula de 1h20min!</p>
+      </div>
+
+      <ul class="turma-features">
+        <li>1 encontro semanal de 1h20min no formato online ao vivo.</li>
+        <li>Resolução guiada das listas da semana e questões típicas de prova.</li>
+        <li>Material digital completo em PDF disponibilizado após cada aula.</li>
+        <li>Grupo exclusivo no WhatsApp para avisos e envio de materiais.</li>
+        <li>Vagas limitadas por turma (início mediante formação de grupo).</li>
+      </ul>
+
+      <a href="https://wa.me/5562998671040?text=Ol%C3%A1%2C%20Prof.%20Guido!%20Tenho%20interesse%20em%20entrar%20na%20Turma%20de%20Acompanhamento%20Semestral." target="_blank" class="turma-btn">
+        Garantir Vaga na Turma
+      </a>
     </div>
   </section>
 
