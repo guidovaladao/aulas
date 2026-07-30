@@ -479,23 +479,24 @@
       color: #a29bfe;
     }
 
-    .calc-btn-wsp {
+  .calc-btn-wsp {
       display: block;
       width: 100%;
       text-align: center;
-      background: #25d366;
+      background: #6c5ce7;
       color: #ffffff;
       text-decoration: none;
       padding: 14px;
       border-radius: 12px;
       font-weight: 600;
       font-size: 1rem;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, transform 0.2s ease;
       box-sizing: border-box;
     }
 
     .calc-btn-wsp:hover {
-      background: #1eb857;
+      background: #5b4cc4;
+      transform: translateY(-2px);
     }
 
     /* Estilos do Card de Turma de Acompanhamento */
@@ -607,6 +608,98 @@
       background: #5b4cc4;
       transform: translateY(-2px);
     }
+
+    /* Pílula de Status / Subtítulo abaixo da Seção */
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 30px;
+      padding: 6px 18px;
+      color: #d1d1c7;
+      font-size: 0.9rem;
+      margin: -28px auto 40px auto; /* Centraliza e ajusta o espaçamento abaixo do título */
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #48bb78; /* Ponto verde */
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* Centraliza a pílula caso a seção seja flex/grid */
+    .center-badge-container {
+      text-align: center;
+      width: 100%;
+    }
+
+    /* Grade para colocar os dois cards de orçamento lado a lado */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      align-items: stretch;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Ajuste para os cards preencherem igualmente a coluna */
+    .turma-card, .calculator-card {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-sizing: border-box;
+    }
+
+    .calc-header {
+      margin-bottom: 20px;
+    }
+
+    .calc-header h3 {
+      font-size: 1.4rem;
+      color: #ffffff;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    .calc-header p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+.logo {
+      font-family: 'Georgia', serif;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: var(--text-white);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Símbolo Nabla (∇) */
+    .logo-symbol {
+      font-size: 1.4rem;
+      color: #a29bfe;
+      display: inline-block;
+      line-height: 1;
+      font-family: 'Georgia', serif;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Ao passar o mouse, gira 180° e vira Delta (Δ) */
+    .logo:hover .logo-symbol {
+      transform: rotate(180deg);
+    }
   </style>
 </head>
 <body>
@@ -633,37 +726,60 @@
   <div class="glow glow-1"></div>
   <div class="glow glow-2"></div>
 
-  <!-- Menu de Navegação -->
+<!-- Menu de Navegação -->
   <header>
     <nav>
-      <a href="#" class="logo">Prof. Guido Valadão</a>
+<a href="#" class="logo">
+        <span class="logo-symbol">∇</span>
+        <span>Prof. Guido Valadão</span>
+      </a>
+
       <ul class="nav-links">
         <li><a href="#sobre">Sobre Mim</a></li>
-        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#servicos">Conteúdos</a></li>
         <li><a href="#metodologia">Como Funciona</a></li>
+        <li><a href="#orcamento">Planos</a></li>
         <li><a href="#depoimentos">Depoimentos</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Cabeçalho (Hero) -->
+<!-- Cabeçalho (Hero) -->
   <section class="hero">
-    <div class="badge">• Aulas Online e Presenciais</div>
+    <!-- Pílula com o mesmo estilo (ponto verde + borda sutil) -->
+    <div class="section-badge" style="margin: 0 auto 24px auto;">
+      <span class="badge-dot"></span>
+      <span>Aulas Online e Presenciais</span>
+    </div>
+
     <h1>Aulas Particulares de Física</h1>
-    <p class="subtitle">Do básico ao avançado • Ensino Médio, Vestibular e Graduação</p>
+    <p class="subtitle">Física I e II • Graduação & Nível Superior</p>
     <p class="author">Mestrando pela UFV & Tutor desde 2022</p>
 
-    <a href="https://wa.me/5562998671040" class="btn-whatsapp" target="_blank">
-      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-      Agendar Aula via WhatsApp
+    <!-- Botão com rolagem suave direto para a Calculadora -->
+    <a href="#orcamento" class="btn-whatsapp">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+        <line x1="8" y1="6" x2="16" y2="6"></line>
+        <line x1="16" y1="14" x2="16" y2="18"></line>
+        <path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"></path>
+      </svg>
+      Simular Valor das Aulas
     </a>
   </section>
 
 <!-- Sobre Mim -->
   <section id="sobre">
+     <!-- Pílula / Badge estilo imagem -->
+    <div class="center-badge-container">
+      <div class="section-badge">
+        <span class="badge-dot"></span>
+        <span>Físico · Professor · Tutor</span>
+      </div>
+    </div>
     <h2 class="section-title">Sobre Mim</h2>
-    
     <div class="about-wrapper">
+      <!-- O resto do seu código da seção "Sobre Mim" continua aqui normalmente -->
       <!-- Foto de Perfil -->
       <div class="about-photo-container">
         <img src="minha-foto.jpg" alt="Foto do Prof. Guido Valadão" class="about-photo">
@@ -686,16 +802,16 @@
     </div>
   </section>
 
-<!-- Serviços / O que você vai aprender -->
+  <!-- Serviços / O que você vai aprender -->
   <section id="servicos">
     <h2 class="section-title">Disciplinas & Conteúdos</h2>
     
     <div class="grid">
-<!-- Card 1: Física I -->
+      <!-- Card 1: Física I -->
       <div class="card">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-          <h3>Física I</h3>
-          <span style="font-size: 1.6rem; color: #a29bfe;">⚙️</span> <!-- Símbolo de Engrenagem / Mecânica -->
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;">
+          <h3 style="margin: 0;">Física I</h3>
+          <span style="font-size: 1.3rem; color: #a29bfe; font-family: 'Georgia', serif; font-style: italic;">Σ</span>
         </div>
         <p style="margin-bottom: 12px; color: #a29bfe; font-size: 0.9rem; font-weight: 600;">NÍVEL SUPERIOR</p>
         <p>
@@ -705,11 +821,11 @@
         </p>
       </div>
 
-<!-- Card 2: Física II -->
+      <!-- Card 2: Física II -->
       <div class="card">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-          <h3>Física II</h3>
-          <span style="font-size: 1.6rem; color: #a29bfe;">🌊</span> <!-- Símbolo de Onda / Fluidos / Termo -->
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;">
+          <h3 style="margin: 0;">Física II</h3>
+          <span style="font-size: 1.3rem; color: #a29bfe; font-family: 'Georgia', serif; font-style: italic;">λ</span>
         </div>
         <p style="margin-bottom: 12px; color: #a29bfe; font-size: 0.9rem; font-weight: 600;">NÍVEL SUPERIOR</p>
         <p>
@@ -718,18 +834,21 @@
         </p>
       </div>
 
-<!-- Card 3: Suporte Acadêmico -->
+      <!-- Card 3: Suporte Acadêmico -->
       <div class="card">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-          <h3>Listas & Provas</h3>
-          <span style="font-size: 1.6rem; color: #a29bfe;">📝</span> <!-- Símbolo de Próvas / Listas -->
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;">
+          <h3 style="margin: 0;">Listas & Provas</h3>
+          <span style="font-size: 1.5rem; color: #a29bfe; font-family: 'Georgia', serif; font-style: italic;">∫</span>
         </div>
         <p style="margin-bottom: 12px; color: #a29bfe; font-size: 0.9rem; font-weight: 600;">FOCO PRÁTICO</p>
         <p>
           Resolução passo a passo de listas de exercícios da graduação, revisão intensiva pré-prova e estratégias para interpretar e resolver problemas de Física de forma eficiente,
           garantindo melhor desempenho acadêmico.
         </p>
+      </div>
+    </div>
   </section>
+
 
 <!-- Como Funcionam as Aulas -->
   <section id="metodologia">
@@ -770,63 +889,102 @@
     </div>
   </section>
 
-  <!-- Seção: Calculadora de Orçamento -->
+  <!-- Seção: Planos & Calculadora de Investimento -->
   <section id="orcamento">
     <div class="section-header">
-      <span class="section-tag"></span>
-      <h2 class="section-title">Calcule o Valor das Aulas</h2>
+      <h2 class="section-title">Investimento & Planos</h2>
     </div>
 
-    <div class="calculator-card">
-      <form id="calc-form" onsubmit="return false;">
-        <!-- Tipo de Aula (Individual ou Grupo) -->
-        <div class="calc-group">
-          <label class="calc-label">Formatos das Aulas:</label>
-          <div class="calc-options">
-            <label class="radio-box">
-              <input type="radio" name="tipoModalidade" value="individual" checked onchange="atualizarCalculadora()">
-              <span>Individual</span>
-            </label>
-            <label class="radio-box">
-              <input type="radio" name="tipoModalidade" value="grupo" onchange="atualizarCalculadora()">
-              <span>Em Grupo</span>
-            </label>
+    <div class="pricing-grid">
+      
+      <!-- Card 1: Turma de Acompanhamento (Maior Economia) -->
+      <div class="turma-card">
+        <div class="turma-badge">MAIOR ECONOMIA</div>
+        <div>
+          <div class="turma-header">
+            <h3>Turmas Pré-Prova (Física I e II)</h3>
+            <p>Aulas semanais em grupo focado para você manter a matéria em dia e não passar sufoco na semana da prova.</p>
           </div>
+
+          <div class="turma-price-box">
+            <div class="price-value">R$ 50<span>/bloco de 4 aulas</span></div>
+            <p class="price-detail">Apenas R$ 12,50 por aula de 1h20min!</p>
+          </div>
+
+          <ul class="turma-features">
+            <li>1 encontro semanal de 1h20min no formato online ao vivo.</li>
+            <li>Resolução guiada das listas da semana e questões típicas de prova.</li>
+            <li>Material digital completo em PDF disponibilizado após cada aula.</li>
+            <li>Grupo exclusivo no WhatsApp para avisos e envio de materiais.</li>
+            <li>Vagas limitadas por turma (início mediante formação de grupo).</li>
+          </ul>
         </div>
 
-        <!-- Número de Alunos (Aparece apenas em Grupo) -->
-        <div class="calc-group" id="grupo-qtd-container" style="display: none;">
-          <label for="qtd-alunos" class="calc-label">Quantidade de Alunos no Grupo:</label>
-          <select id="qtd-alunos" onchange="atualizarCalculadora()" class="calc-input">
-            <option value="2">2 Alunos</option>
-            <option value="3">3 Alunos</option>
-            <option value="4">4 ou mais Alunos</option>
-          </select>
-        </div>
+        <a href="https://wa.me/5562998671040?text=Ol%C3%A1%2C%20Prof.%20Guido!%20Tenho%20interesse%20em%20entrar%20na%20Turma%20de%20Acompanhamento%20Semestral." target="_blank" class="turma-btn">
+          Garantir Vaga na Turma
+        </a>
+      </div>
 
-        <!-- Número de Aulas -->
-        <div class="calc-group">
-          <label for="qtd-aulas" class="calc-label">Quantidade de Aulas (horas):</label>
-          <input type="number" id="qtd-aulas" min="1" max="30" value="1" oninput="atualizarCalculadora()" class="calc-input">
-        </div>
+      <!-- Card 2: Simulador / Aulas Particulares -->
+      <div class="calculator-card">
+        <div>
+          <div class="calc-header">
+            <h3>Aulas Particulares (Sob Medida)</h3>
+            <p>Monte o pacote ideal de acordo com a sua necessidade (individual ou grupo pequeno).</p>
+          </div>
 
-        <!-- Resultado -->
-        <div class="calc-result">
-          <div class="result-details">
-            <span id="valor-hora-text">Valor por hora: <strong>R$ 60,00</strong></span>
-            <span id="desconto-text" class="badge-desconto">Aula Solteira</span>
-          </div>
-          <div class="result-total">
-            <span>Total Estimado:</span>
-            <h3 id="valor-total">R$ 60,00</h3>
-          </div>
+          <form id="calc-form" onsubmit="return false;">
+            <!-- Tipo de Aula (Individual ou Grupo) -->
+            <div class="calc-group">
+              <label class="calc-label">Formato das Aulas:</label>
+              <div class="calc-options">
+                <label class="radio-box">
+                  <input type="radio" name="tipoModalidade" value="individual" checked onchange="atualizarCalculadora()">
+                  <span>Individual</span>
+                </label>
+                <label class="radio-box">
+                  <input type="radio" name="tipoModalidade" value="grupo" onchange="atualizarCalculadora()">
+                  <span>Em Grupo</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Número de Alunos (Aparece apenas em Grupo) -->
+            <div class="calc-group" id="grupo-qtd-container" style="display: none;">
+              <label for="qtd-alunos" class="calc-label">Quantidade de Alunos no Grupo:</label>
+              <select id="qtd-alunos" onchange="atualizarCalculadora()" class="calc-input">
+                <option value="2">2 Alunos</option>
+                <option value="3">3 Alunos</option>
+                <option value="4">4 ou mais Alunos</option>
+              </select>
+            </div>
+
+            <!-- Número de Aulas -->
+            <div class="calc-group">
+              <label for="qtd-aulas" class="calc-label">Quantidade de Aulas (horas):</label>
+              <input type="number" id="qtd-aulas" min="1" max="30" value="1" oninput="atualizarCalculadora()" class="calc-input">
+            </div>
+
+            <!-- Resultado -->
+            <div class="calc-result">
+              <div class="result-details">
+                <span id="valor-hora-text">Valor por hora: <strong>R$ 60,00</strong></span>
+                <span id="desconto-text" class="badge-desconto">Aula Solteira</span>
+              </div>
+              <div class="result-total">
+                <span>Total Estimado:</span>
+                <h3 id="valor-total">R$ 60,00</h3>
+              </div>
+            </div>
+          </form>
         </div>
 
         <!-- Botão WhatsApp -->
         <a id="btn-whatsapp" href="#" target="_blank" class="calc-btn-wsp">
           Agendar esse Pacote no WhatsApp
         </a>
-      </form>
+      </div>
+
     </div>
   </section>
 
@@ -842,38 +1000,6 @@
         <p>"Consegui tirar minhas dúvidas de anos sobre vetores e leis de Newton em poucas aulas. Recomendo muito!"</p>
         <div class="testimonial-author">— Aluna de Agronomia (UFV)</div>
       </div>
-    </div>
-  </section>
-
-<!-- Seção: Turmas de Acompanhamento -->
-  <section id="turmas">
-    <div class="section-header">
-      <h2 class="section-title">Acompanhamento Semestral em Turma</h2>
-    </div>
-
-    <div class="turma-card">
-      <div class="turma-badge">MAIOR ECONOMIA</div>
-      <div class="turma-header">
-        <h3>Turmas Pré-Prova (Física I e II)</h3>
-        <p>Aulas semanais em grupo focado para você manter a matéria em dia e não passar sufoco na semana da prova.</p>
-      </div>
-
-      <div class="turma-price-box">
-        <div class="price-value">R$ 50<span>/bloco de 4 aulas</span></div>
-        <p class="price-detail">Apenas R$ 12,50 por aula de 1h20min!</p>
-      </div>
-
-      <ul class="turma-features">
-        <li>1 encontro semanal de 1h20min no formato online ao vivo.</li>
-        <li>Resolução guiada das listas da semana e questões típicas de prova.</li>
-        <li>Material digital completo em PDF disponibilizado após cada aula.</li>
-        <li>Grupo exclusivo no WhatsApp para avisos e envio de materiais.</li>
-        <li>Vagas limitadas por turma (início mediante formação de grupo).</li>
-      </ul>
-
-      <a href="https://wa.me/5562998671040?text=Ol%C3%A1%2C%20Prof.%20Guido!%20Tenho%20interesse%20em%20entrar%20na%20Turma%20de%20Acompanhamento%20Semestral." target="_blank" class="turma-btn">
-        Garantir Vaga na Turma
-      </a>
     </div>
   </section>
 
